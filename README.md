@@ -16,7 +16,7 @@ A modern, intuitive calculator application built with React. This project demons
 
 Check out the live demo of the calculator in action:
 
-![Calculator Demo](./public/demo.mp4)
+![Calculator Demo](./public/demo.gif)
 
 ## 🛠️ Prerequisites
 

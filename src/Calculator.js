@@ -27,7 +27,7 @@ const Calculator = () => {
   let [state, dispatch] = useReducer(reducer, "");
 
   function getValue(state) {
-    const parts = state.replace(/x/g, "*").split(/([+\-*/%])/);
+    const parts = state.split(/([+\-*/%])/);
     const cleanParts = parts.filter((part) => part !== "");
 
     if (cleanParts.length < 3) return state;
@@ -105,12 +105,12 @@ const Calculator = () => {
         break;
       case MULTIPLY:
         if (!operators.includes(state.slice(-1))) {
-          newState = state + "x";
+          newState = state + "*";
         }
         break;
       case ADD:
         if (!operators.includes(state.slice(-1))) {
-          newState = state + "+";
+          newState = state + "+".replace(operators);
         }
         break;
       case SUBTRACT:
@@ -158,7 +158,7 @@ const Calculator = () => {
         <button onClick={() => dispatch({ type: SEVEN })}>7</button>
         <button onClick={() => dispatch({ type: EIGHT })}>8</button>
         <button onClick={() => dispatch({ type: NINE })}>9</button>
-        <button onClick={() => dispatch({ type: MULTIPLY })}>x</button>
+        <button onClick={() => dispatch({ type: MULTIPLY })}>*</button>
 
         <button onClick={() => dispatch({ type: FOUR })}>4</button>
         <button onClick={() => dispatch({ type: FIVE })}>5</button>
